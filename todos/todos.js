@@ -17,11 +17,21 @@ const deleteButton = document.querySelector('.delete-button');
 
 todoForm.addEventListener('submit', async(e) => {
     // on submit, create a todo, reset the form, and display the todos
+    e.preventDefault();
+    const data = new FormData(todoForm);
+    const todo = data.get('todo');
+
+    await createTodo(todo);
+
+    todoForm.reset();
+
+    displayTodos();
+
 });
 
 async function displayTodos() {
     // fetch the todos
-    
+    const todo = await getTodos();
     // display the list of todos
 
     // be sure to give each todo an event listener
