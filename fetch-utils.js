@@ -24,18 +24,18 @@ export async function deleteAllTodos() {
 export async function getTodos() {
     // get all todos for this user from supabase
     const response = await client 
-        .fom('todos')
+        .from('todos')
         .select();
 
     return checkError(response);    
 }
 
-export async function completeTodo(id) {
+export async function completeTodo(anId) {
     // find the and update (set complete to true), the todo that matches the correct id
     const response = client 
-    .from('todos')
-    .update({ complete: true })
-    .match({ id: id });
+        .from('todos')
+        .update({ complete: true })
+        .match({ id: anId });
 
     return checkError(response);    
 }
