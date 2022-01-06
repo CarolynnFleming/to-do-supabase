@@ -8,7 +8,7 @@ export function renderTodo(todo) {
     if (todo.complete){
         todoItem.classList.add('complete');
     } else {
-        todoItem.classList.add('not-complete');    
+        todoItem.classList.add('incomplete');    
     }
     // add the 'todo' css class no matter what
     todoItem.classList.add('todo');
