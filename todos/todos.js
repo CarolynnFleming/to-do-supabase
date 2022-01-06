@@ -25,7 +25,7 @@ todoForm.addEventListener('submit', async(e) => {
 
     todoForm.reset();
 
-    displayTodos();
+    await displayTodos();
 
 });
 
@@ -37,10 +37,9 @@ async function displayTodos() {
     // be sure to give each todo an event listener
     for (let todo of todos) {
         const todoListEl = renderTodo(todo);
-        if (todo.complete === true) {
+        if (todo.complete === false) {
             todoListEl.addEventListener('click', async() =>{
                 await completeTodo(todo.id);
-
                 displayTodos();
             });
         }

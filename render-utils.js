@@ -16,7 +16,7 @@ export function renderTodo(todo) {
     todoEl.textContent = `${todo.todo}`;
     // append stuff
     todoItem.append(todoEl);
-    todoEl.append(todo);
+    //todoEl.append(todo);
     // return the div
     return todoItem;
     
