@@ -11,7 +11,7 @@ export function renderTodo(todo) {
         todoItem.classList.add('not-complete');    
     }
     // add the 'todo' css class no matter what
-    todoItem.textContent = todo;
+    todoItem.classList.add('todo');
     // put the todo's text into the p tag
     todoEl.textContent = `${todo.todo}`;
     // append stuff
