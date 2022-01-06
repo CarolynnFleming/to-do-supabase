@@ -32,7 +32,7 @@ export async function getTodos() {
 
 export async function completeTodo(anId) {
     // find the and update (set complete to true), the todo that matches the correct id
-    const response = client 
+    const response = await client 
         .from('todos')
         .update({ complete: true })
         .match({ id: anId });
@@ -61,8 +61,8 @@ export async function redirectIfLoggedIn() {
 
 export async function signupUser(email, password){
     const response = await client.auth.signUp({ email, password });
-    
-    return checkError(response);
+    console.log('response', response);
+    return checkSignUp(response);
 }
 
 export async function signInUser(email, password){
@@ -79,4 +79,8 @@ export async function logout() {
 
 function checkError({ data, error }) {
     return error ? console.error(error) : data;
+}
+
+function checkSignUp({ user, error }) {
+    return error ? console.error(error) : user;
 }
